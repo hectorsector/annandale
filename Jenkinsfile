@@ -1,8 +1,15 @@
-stage ('Install dependencies') {
-    node {
-        withRvm('ruby-2.3.1') {
-            sh 'gem install bundler'
-            sh 'bundle install'
+pipeline {
+    agent {
+        docker {
+            image 'ruby' 
+        }
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'gem install bundler'
+                sh 'bundle install' 
+            }
         }
     }
 }
