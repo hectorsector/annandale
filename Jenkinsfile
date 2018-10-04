@@ -1,10 +1,10 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
-            steps {
-                sh("gem install bundler")
-                sh("bundle install")
+        stage ('Install dependencies') {
+            withRvm('ruby-2.3.1') {
+                sh 'gem install bundler'
+                sh 'bundle install'
             }
         }
     }
