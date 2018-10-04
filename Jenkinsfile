@@ -6,15 +6,5 @@ pipeline {
                 sh("bundle install")
             }
         }
-        stage('Test') { 
-            steps {
-                // 
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                // 
-            }
-        }
     }
 }
